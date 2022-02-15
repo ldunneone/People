@@ -3,7 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-
+    <data>
+        <variable
+            name="person"
+            type="com.example.people.data.Person" />
+        <variable
+            name="resultsCallback"
+            type="com.example.people.view.adapter.PersonClick" />
+    </data>
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -20,7 +27,7 @@
             <ImageView
                 android:id="@+id/person_pic_imageview"
                 android:src="@drawable/ic_baseline_person_24"
-                app:loadBadge="@{flight.links.badge.small}"
+                app:loadBadge="@{person.avatar}"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -33,7 +40,7 @@
                 android:textSize="24sp"
                 android:textStyle="bold"
                 tools:text="Person Name"
-                android:text="@{flight.name}"
+                android:text="@{person.firstName}"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toEndOf="@id/person_pic_imageview"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -45,7 +52,7 @@
                 android:id="@+id/person_job_title_textview"
                 android:textSize="16sp"
                 tools:text="Job Title"
-                android:text="@{flight.date_utc}"
+                android:text="@{person.jobTitle}"
                 app:layout_constraintTop_toBottomOf="@id/person_title_textview"
                 app:layout_constraintStart_toEndOf="@id/person_pic_imageview"
                 android:layout_margin="10dp"
@@ -55,7 +62,7 @@
             <TextView
                 android:id="@+id/person_date_textview"
                 android:textSize="16sp"
-                android:text="Date Created"
+                android:text="@{person.createdAt}"
                 app:layout_constraintTop_toBottomOf="@id/person_job_title_textview"
                 app:layout_constraintStart_toEndOf="@id/person_pic_imageview"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -66,7 +73,6 @@
             <ImageView
                 android:id="@+id/mission_success_imageview"
                 tools:src="@drawable/ic_baseline_confirmation_number_24"
-                app:loadImage="@{flight.success}"
                 app:layout_constraintStart_toEndOf="@id/person_date_textview"
                 app:layout_constraintTop_toTopOf="@id/person_date_textview"
                 app:layout_constraintBottom_toBottomOf="@id/person_date_textview"
@@ -80,7 +86,7 @@
                 android:layout_height="0dp"
                 android:background="?attr/selectableItemBackground"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:onClick="@{() -> resultsCallback.onClick(flight)}"
+                android:onClick="@{() -> resultsCallback.onClick(person)}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

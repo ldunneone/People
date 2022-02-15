@@ -4,6 +4,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.people.data.People
+import com.example.people.data.Person
+import com.example.people.databinding.RowPeopleItemBinding
 
 class PersonAdapter(val callback: PersonClick) : RecyclerView.Adapter<PersonViewHolder>(){
 
@@ -14,15 +16,15 @@ class PersonAdapter(val callback: PersonClick) : RecyclerView.Adapter<PersonView
         }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PersonViewHolder {
-        val view = RowPersonItemBinding
+        val view = RowPeopleItemBinding
             .inflate(LayoutInflater.from(parent.context), parent, false)
 
-        return FlightViewHolder(view)
+        return PersonViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: FlightViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: PersonViewHolder, position: Int) {
         holder.binding.also {
-            it.flight = personDataList[position]
+            it.person = personDataList[position]
             it.resultsCallback = callback
         }
     }
@@ -33,7 +35,7 @@ class PersonAdapter(val callback: PersonClick) : RecyclerView.Adapter<PersonView
 }
 
 
-class FlightViewHolder(val binding: RowPersonItemBinding) : RecyclerView.ViewHolder(binding.root)
+class PersonViewHolder(val binding: RowPeopleItemBinding) : RecyclerView.ViewHolder(binding.root)
 
 class PersonClick(val block: (People) -> Unit) {
 

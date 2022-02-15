@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.people.R
 import com.example.people.util.LoadingState
 import com.example.people.view.adapter.PersonAdapter
+import com.example.people.view.adapter.PersonClick
 import com.example.people.viewmodel.PersonViewModel
 import com.google.android.material.snackbar.Snackbar
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -60,7 +61,7 @@ class HomeFragment : Fragment(){
     private fun setupObservers(){
 
         personViewModel.personData.observe(viewLifecycleOwner) {
-            personAdapter.personDataList = it.flightResponse
+            personAdapter.personDataList = it.personResponse
         }
 
         personViewModel.loadingState.observe(viewLifecycleOwner) {
