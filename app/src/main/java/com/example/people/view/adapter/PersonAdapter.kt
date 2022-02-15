@@ -9,7 +9,7 @@ import com.example.people.databinding.RowPeopleItemBinding
 
 class PersonAdapter(val callback: PersonClick) : RecyclerView.Adapter<PersonViewHolder>(){
 
-    var personDataList = emptyList<People>()
+    var personDataList = emptyList<Person>()
         set(value) {
             field = value
             notifyDataSetChanged()
