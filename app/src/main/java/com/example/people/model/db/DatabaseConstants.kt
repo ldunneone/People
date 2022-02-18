@@ -8,8 +8,8 @@ object DatabaseConstants {
 
     const val EXPORT_SCHEMA = false
 
-    const val SELECT_ALL_PEOPLE_QUERY = "SELECT * FROM PeopleResponse"
+    const val SELECT_ALL_PEOPLE_QUERY = "SELECT * FROM PersonResponse"
 
-    const val DELETE_ALL_PEOPLE_QUERY = "DELETE FROM PeopleResponse"
+    const val DELETE_ALL_PEOPLE_QUERY = "DELETE FROM PersonResponse"
 
 }

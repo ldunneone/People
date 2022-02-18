@@ -39,5 +39,5 @@ data class Person (
 @RewriteQueriesToDropUnusedColumns
 data class PersonResponse(
     @PrimaryKey val personResponseId: Int = 1,
-    val personResponse: List<People>
+    val personResponse: List<Person> = emptyList()
 )

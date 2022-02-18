@@ -3,7 +3,7 @@ package com.example.people.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.people.data.People
+import com.example.people.data.Person
 import com.example.people.repository.PersonRepository
 import com.example.people.util.LoadingState
 import kotlinx.coroutines.CoroutineScope
@@ -43,11 +43,11 @@ class PersonViewModel(
 
     //for display data in second fragment
     // LiveData to handle navigation to the selected Character
-    private val _navigateToSelectedPerson = MutableLiveData<People?>()
-    val navigateToSelectedPerson: MutableLiveData<People?>
+    private val _navigateToSelectedPerson = MutableLiveData<Person?>()
+    val navigateToSelectedPerson: MutableLiveData<Person?>
         get() = _navigateToSelectedPerson
 
-    fun displayPersonDetails(characterProperty: People) {
+    fun displayPersonDetails(characterProperty: Person) {
         _navigateToSelectedPerson.value = characterProperty
     }
 

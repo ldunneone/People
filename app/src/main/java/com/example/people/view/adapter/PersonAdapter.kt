@@ -37,7 +37,7 @@ class PersonAdapter(val callback: PersonClick) : RecyclerView.Adapter<PersonView
 
 class PersonViewHolder(val binding: RowPeopleItemBinding) : RecyclerView.ViewHolder(binding.root)
 
-class PersonClick(val block: (People) -> Unit) {
+class PersonClick(val block: (Person) -> Unit) {
 
-    fun onClick(person: People) = block(person)
+    fun onClick(person: Person) = block(person)
 }

@@ -24,7 +24,7 @@ app:startDestination="@id/HomeFragment">
 
     <argument
         android:name="selectedPerson"
-        app:argType="com.example.people.model.flight.Flight"
+        app:argType="com.example.people.data.Person"
         />
     <action
         android:id="@+id/action_personDetails_Fragment_to_Home_Fragment"

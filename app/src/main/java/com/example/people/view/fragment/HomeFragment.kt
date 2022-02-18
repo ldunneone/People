@@ -9,6 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.people.R
+import com.example.people.data.Person
 import com.example.people.util.LoadingState
 import com.example.people.view.adapter.PersonAdapter
 import com.example.people.view.adapter.PersonClick
@@ -48,9 +49,25 @@ class HomeFragment : Fragment(){
 
         personViewModel.navigateToSelectedPerson.observe(viewLifecycleOwner, Observer {
             if (null != it) {
-                this.findNavController().navigate(
-                    HomeFragmentDirections.actionHomeFragmentToPersonDetailsFragment(it)
+                findNavController().navigate(
+                    HomeFragmentDirections.actionHomeFragmentToPersonDetailsFragment(
+                        Person(
+                            it.avatar,
+                            it.createdAt,
+                            it.email,
+                            it.favouriteColor,
+                            it.firstName,
+                            it.id,
+                            it.jobTitle,
+                            it.lastName,
+                            it.latitude,
+                            it.longitude,
+                            it.phone
+                        )
+                    )
                 )
+
+
                 // Tell the ViewModel we've made the navigate call to prevent multiple navigation
                 personViewModel.displayPropertyDetailsComplete()
             }

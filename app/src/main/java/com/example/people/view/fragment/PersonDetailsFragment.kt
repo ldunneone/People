@@ -25,6 +25,7 @@ class PersonDetailsFragment : Fragment() {
         val binding = FragmentPersonDetailsBinding.inflate(inflater)
         binding.setLifecycleOwner(this)
         val characterProperty = PersonDetailsFragmentArgs.fromBundle(arguments!!).selectedPerson
+
         binding.viewModel = viewModel
         viewModel.setPerson(characterProperty)
 

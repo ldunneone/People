@@ -18,7 +18,7 @@ val databaseModule = module {
     }
 
     fun provideDao(database: PeopleDatabase) : PeopleDao {
-        return database.peopleDao
+        return database.getPeopleDao()
     }
 
     single { provideDatabase(androidApplication()) }
