@@ -20,18 +20,18 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="10dp"
             >
 
             <TextView
                 android:id="@+id/text_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="5dp"
                 android:layout_margin="5dp"
+                android:background="@drawable/gradient_button"
+                android:padding="5dp"
+                android:text="@{viewModel.selectedPerson.firstName+`, `+viewModel.selectedPerson.lastName}"
                 android:textAlignment="center"
-                android:background = "@drawable/gradient_button"
-                android:text="@{viewModel.selectedPerson.firstName}"
                 android:textColor="@color/black"
                 android:textSize="30sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -64,28 +64,37 @@
                 app:layout_constraintTop_toBottomOf="@id/text_name">
 
                 <TextView
-                    android:id="@+id/text_email"
+                    android:id="@+id/text_details"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
                     android:layout_margin="5dp"
                     android:textAlignment="center"
                     android:background = "@drawable/gradient_button"
-                    android:text="Email"
+                    android:text="Personal Details"
                     android:textColor="@color/black"
                     android:textSize="20sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:text="Email" />
+                    tools:text="Personal Details" />
                 <TextView
-                    android:id="@+id/details"
+                    android:id="@+id/email"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{`Info : `+ viewModel.selectedPerson.email}"
+                    android:text="@{`Email : `+ viewModel.selectedPerson.email}"
                     android:textColor="@color/white"
                     android:textSize="20sp"
-                    tools:text="eg@eg.com" />
+                    tools:text="Email" />
+                <TextView
+                    android:id="@+id/phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{`Phone : `+ viewModel.selectedPerson.phone}"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    tools:text="Phone" />
+
                 <!--                <TextView-->
                 <!--                    android:id="@+id/media"-->
                 <!--                    android:layout_width="wrap_content"-->
@@ -103,13 +112,22 @@
                     android:layout_margin="5dp"
                     android:textAlignment="center"
                     android:background = "@drawable/gradient_button"
-                    android:text="Media"
+                    android:text="@{`Colour: `+viewModel.selectedPerson.favouriteColor}"
                     android:textColor="@color/black"
                     android:textSize="20sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:text="Media" />
+                    tools:text="Favourite Colour" />
+
+                <TextView
+                    android:id="@+id/location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{`Location : `+ viewModel.selectedPerson.longitude+`, `+viewModel.selectedPerson.latitude}"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    tools:text="Location" />
 
                 <LinearLayout
                     android:id="@+id/linearLayout2"
