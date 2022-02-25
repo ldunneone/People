@@ -97,15 +97,6 @@
                     android:textSize="20sp"
                     tools:text="Phone" />
 
-                <!--                <TextView-->
-                <!--                    android:id="@+id/media"-->
-                <!--                    android:layout_width="wrap_content"-->
-                <!--                    android:layout_height="wrap_content"-->
-                <!--                    android:text="Media"-->
-                <!--                    android:textColor="@color/white"-->
-                <!--                    android:textSize="20sp"-->
-                <!--                    tools:text="Media" />-->
-
                 <TextView
                     android:id="@+id/text_media"
                     android:layout_width="match_parent"
@@ -113,9 +104,10 @@
                     android:padding="5dp"
                     android:layout_margin="5dp"
                     android:textAlignment="center"
-                    android:background = "@drawable/gradient_button"
+                    app:setBackgroundColor= "@{viewModel.selectedPerson.favouriteColor}"
                     android:text="@{`Colour: `+viewModel.selectedPerson.favouriteColor}"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
+                    android:shadowColor="@color/black"
                     android:textSize="20sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
