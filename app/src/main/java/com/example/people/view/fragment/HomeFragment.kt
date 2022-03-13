@@ -78,7 +78,9 @@ class HomeFragment : Fragment(){
     private fun setupObservers(){
 
         personViewModel.personData.observe(viewLifecycleOwner) {
-            personAdapter.personDataList = it.personResponse
+            if(it != null) {
+                personAdapter.personDataList = it.personResponse
+            }
         }
 
         personViewModel.loadingState.observe(viewLifecycleOwner) {
