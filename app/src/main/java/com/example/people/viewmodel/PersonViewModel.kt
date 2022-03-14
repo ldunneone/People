@@ -3,6 +3,7 @@ package com.example.people.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.people.data.Person
 import com.example.people.repository.PersonRepository
 import com.example.people.util.LoadingState
@@ -22,23 +23,24 @@ class PersonViewModel(
     val loadingState: LiveData<LoadingState>
         get() = _loadingState
 
-    val viewModelScope = CoroutineScope(Dispatchers.Main + SupervisorJob())
+    //val viewModelScope = CoroutineScope(Dispatchers.Main + SupervisorJob())
 
     init {
-        getPersonData()
+        viewModelScope.launch {
+            getPersonData()
+        }
     }
 
-    fun getPersonData(){
-        viewModelScope.launch {
-            try {
-                _loadingState.value = LoadingState.LOADING
-                personRepository.getPeople()
-                _loadingState.value = LoadingState.LOADED
-            }
-            catch (exception: HttpException){
-                _loadingState.value = LoadingState.logError(exception.message())
-            }
+    suspend fun getPersonData() {
+        try {
+            _loadingState.value = LoadingState.LOADING
+            personRepository.getPeople()
+            _loadingState.value = LoadingState.LOADED
         }
+        catch (exception: HttpException){
+            _loadingState.value = LoadingState.logError(exception.message())
+        }
+
     }
 
     //for display data in second fragment

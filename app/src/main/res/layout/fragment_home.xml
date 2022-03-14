@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/falcon_9_launches_textview"
+        android:id="@+id/people_list_textview"
         android:text=""
         android:textSize="36sp"
         android:layout_marginTop="20dp"
